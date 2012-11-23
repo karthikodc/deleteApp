@@ -2,17 +2,25 @@
 
 $(document).ready(function () {
   $("#content").text("The DOM is now loaded and can be manipulated.");
-	var documentURI = ""; //A given URI of a document
-	var authorURI="https://apps-onprem.jivesoftware.com/people/"
-	var placeURI="https://apps-onprem.jivesoftware.com/groups/accenturetest";
-	var request = osapi.jive.corev3.contents.get({
-     "type": "document",
-     "fields": "@all",
-	 "place":placeURI,
-	 "author":authorURI,
-	});
-
-	request.execute(function(data) {
-     console.log("Fetched the document!", data);
-	});
+	var viewer;
+	gadgets.util.registerOnLoadHandler(init);
+	
+	function init() {
+		loadUser();
+		viewer = opensocial.data.getDataContext().getDataSet('viewer');
+		console.log("loadUser() started");
+		
+	};
+	function loadUser() {
+    console.log("loadUser() started");
+    showMessage("Loading the currently logged in user ...");
+    osapi.jive.core.users.get({
+        id : '@viewer'
+    }).execute(function(response) {
+            console.log("loadUser() response = " + JSON.stringify(response));
+            user = response.data;
+            $(".user-name").html("").html(user.name);
+            loadGroups();
+        });
+}
 });
