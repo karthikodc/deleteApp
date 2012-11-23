@@ -74,21 +74,12 @@ function loadUser() {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			user = response.data;
 			$(".user-name").html("").html(user.name);
-			loadUsers();
+			function loadDiscussions()
+			function loadDocuments()
 		});
 }
 
-function loadUsers() {
-  console.log("loadUsers() started");
-  showMessage("Loading users available for collaboration ...");
-  osapi.jive.core.users.get({
-    limit : 25
-  }).execute(function(response) {
-    console.log("loadUsers() response = " + JSON.stringify(response));
-    users = response.data;
-    loadDocuments();
-  });
-}
+
 
 function showMessage(message) {
     $("#status-message").html("").html(message);
