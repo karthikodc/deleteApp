@@ -1,12 +1,13 @@
 
 
 $(document).ready(function () {
- // $("#content").text("The DOM is now loaded and can be manipulated.");
+  $("#content").text("The DOM is now loaded and can be manipulated.");
 	var viewer;
+	console.log("Ready started");
 	gadgets.util.registerOnLoadHandler(init);
 	
 	function init() {
-		 $("#select-group-button").click(loadUser);
+		loadUser();
 		viewer = opensocial.data.getDataContext().getDataSet('viewer');
 		console.log("loadUser() started");
 		
