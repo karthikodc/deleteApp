@@ -25,6 +25,17 @@ function loadUser() {
 		});
 }
 
+function showMessage(message) {
+    $("#status-message").html("").html(message);
+    showOnly("status-div");
+}
+
+// Show only the specified top level div
+function showOnly(id) {
+    $(".top-level-div").hide();
+    $("#" + id).show();
+    gadgets.window.adjustHeight();
+}
 
 // Register our on-view-load handler
 gadgets.util.registerOnLoadHandler(init);
