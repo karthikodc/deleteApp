@@ -1,7 +1,7 @@
 
 
 $(document).ready(function () {
-  $("#content").text("The DOM is now loaded and can be manipulated.");
+ // $("#content").text("The DOM is now loaded and can be manipulated.");
 	var viewer;
 	gadgets.util.registerOnLoadHandler(init);
 	
