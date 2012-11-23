@@ -1,3 +1,5 @@
+// Currently logged in user
+var user;
 
 function init() {
 	loadUser();
