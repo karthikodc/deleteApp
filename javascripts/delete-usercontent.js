@@ -7,7 +7,7 @@ $(document).ready(function () {
 	var placeURI="https://apps-onprem.jivesoftware.com/groups/accenturetest";
 	var request = osapi.jive.corev3.contents.get({
      "type": "document",
-     "fields": "@all"
+     "fields": "@all",
 	 "place":placeURI,
 	 "author":authorURI,
 	});
