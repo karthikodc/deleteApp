@@ -74,8 +74,7 @@ function loadUser() {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			user = response.data;
 			$(".user-name").html("").html(user.name);
-			function loadDiscussions();
-			function loadDocuments();
+			loadDocuments();
 		});
 }
 
