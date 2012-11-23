@@ -13,16 +13,8 @@ function init() {
 function loadDocuments() {
   console.log("loadDocuments() started");
   showMessage("Loading private documents for '" + user.name + "' ...");
-  var request = osapi.jive.corev3.contents.get({
-     "type": "document",
-     "uri": documentURI,
-     "fields": "@all"
- });
-
- request.execute(function(data) {
-     console.log("Fetched the document!", data);
- })
-  user.privateDocuments.get({
+  
+  user.Documents.get({
     limit : 1000
   }).execute(function(response) {
     console.log("loadDocuments() response = " + JSON.stringify(response));
