@@ -6,7 +6,7 @@ $(document).ready(function () {
 	gadgets.util.registerOnLoadHandler(init);
 	
 	function init() {
-		loadUser();
+		 $("#select-group-button").click(loadUser);
 		viewer = opensocial.data.getDataContext().getDataSet('viewer');
 		console.log("loadUser() started");
 		
