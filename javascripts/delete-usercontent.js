@@ -1,7 +1,6 @@
 
 function init() {
 	loadUser();
-	viewer = opensocial.data.getDataContext().getDataSet('viewer');
 	console.log("loadUser() started");
 		
 };
@@ -21,7 +20,7 @@ function loadUser() {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			user = response.data;
 			$(".user-name").html("").html(user.name);
-			loadGroups();
+			
 		});
 }
 
