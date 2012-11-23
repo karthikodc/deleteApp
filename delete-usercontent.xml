@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Delete User Content"
+                author="Jive Software"
+           description="Delete User Content Tool for ACE Global Village"
+                height="400">
+        <Require feature="dynamic-height"/>
+        <Require feature="jive-core-v2"/>
+        <Require feature="jquery-1.4.2"/>
+        <Require feature="osapi"/>
+        <Require feature="views"/>
+    </ModulePrefs>
+    <Content view="home" type="html" href="delete-usercontent.html"/>
+    <Content view="canvas" type="html" href="delete-usercontent.html"/>
+</Module>
