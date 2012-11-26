@@ -26,7 +26,7 @@ function loadDocuments() {
 function loadUser() {
 	$(document).ready(function () {
 		$("#content").text("The DOM is now loaded and can be manipulated.");
-		var viewer;
+		
 		console.log("Ready started");
 	});
 	console.log("loadUser() started");
@@ -35,7 +35,7 @@ function loadUser() {
 	osapi.jive.corev3.people.get({id : '@me'})
 		.execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
-			user = response.data;
+			user= response.data;
 			
 			$(".user-name").html("").html(user.name.formatted);
 			loadDocuments();
