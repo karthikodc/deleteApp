@@ -53,14 +53,15 @@ function loadUser() {
 	});
 	console.log("loadUser() started");
 	showMessage("Loading the currently logged in user ...");
-	osapi.jive.corev3.users.get({
+	/*osapi.jive.corev3.users.get({
 		id : '@viewer'
 	}).execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			user = response.data;
 			$(".user-name").html("").html(user.name);
-			loadDocuments();
-		});
+			
+		});*/
+		loadDocuments();
 }
 
 
