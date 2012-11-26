@@ -14,8 +14,7 @@ function loadDocuments() {
   console.log("loadDocuments() started");
   //showMessage("Loading private documents for '" + user.name + "' ...");
   var request = osapi.jive.corev3.contents.get({
-     //"type": "document",
-     //"uri": documentURI,
+     
      "author": "@me"
  });
 
