@@ -13,10 +13,8 @@ function init() {
 function loadDocuments() {
   console.log("loadDocuments() started");
   //showMessage("Loading private documents for '" + user.name + "' ...");
-  var request = osapi.jive.corev3.contents.get({
-     
-     "author": "https://apps-public-cloud-trunk.jivesoftware.com/people/2065"
- });
+  var uri="https://apps-public-cloud-trunk.jivesoftware.com/people/pradeep.tammineni";
+  var request = osapi.jive.corev3.people.get(uri);
 
  request.execute(function(data) {
      console.log("Fetched the document!", data);
