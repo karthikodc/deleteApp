@@ -12,17 +12,17 @@ function init() {
 // Load the private documents for this user
 function loadDocuments() {
   console.log("loadDocuments() started");
-  //showMessage("Loading private documents for '" + user.name + "' ...");
-  var uri="https://apps-public-cloud-trunk.jivesoftware.com/people/";
-  
-  var request = osapi.jive.corev3.people.get({id : '@me'});
- 
+  showMessage("Loading private documents for '" + user.name + "' ...");
+  var request = osapi.jive.corev3.contents.get({
+     //"type": "document",
+     //"uri": documentURI,
+     "author": "@me"
+ });
+
  request.execute(function(data) {
      console.log("Fetched the document!", data);
-	 console.log("searching response is " + JSON.stringify(data));
  });
   
-}	
 function loadUser() {
 	$(document).ready(function () {
 		$("#content").text("The DOM is now loaded and can be manipulated.");
@@ -31,15 +31,14 @@ function loadUser() {
 	});
 	console.log("loadUser() started");
 	showMessage("Loading the currently logged in user ...");
-	/*osapi.jive.corev3.users.get({
-		id : '@viewer'
-	}).execute(function(response) {
+	
+	osapi.jive.corev3.people.get({id : '@me'})
+		.execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			user = response.data;
 			$(".user-name").html("").html(user.name);
-			
-		});*/
-		loadDocuments();
+			loadDocuments();
+		});
 }
 
 
