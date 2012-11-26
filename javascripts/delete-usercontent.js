@@ -12,7 +12,7 @@ function init() {
 // Load the private documents for this user
 function loadDocuments() {
   console.log("loadDocuments() started");
-  showMessage("Loading private documents for '" + user.name + "' ...");
+  //showMessage("Loading private documents for '" + user.name + "' ...");
   var request = osapi.jive.core.contents.get({
      //"type": "document",
      //"uri": documentURI,
@@ -22,28 +22,7 @@ function loadDocuments() {
  request.execute(function(data) {
      console.log("Fetched the document!", data);
  });
-  user.privateDocuments.get({
-    limit : 1000
-  }).execute(function(response) {
-    console.log("loadDocuments() response = " + JSON.stringify(response));
-    var html = '<ul>';
-    documents = response.data;
-    $.each(documents, function(index, doc) {
-      html += '<li>';
-      html += '<a href="#" class="document-select" data-index="' + index + '">' + doc.subject + '</a>';
-      html += ' (' + doc.viewCount + ' views)';
-      html += '</li>';
-    });
-    html += '</ul>';
-    $("#documents-list").html("").html(html);
-    $(".document-select").click(function () {
-      var index = $(this).attr("data-index");
-      current = documents[index];
-      $(".document-subject").html("").html(current.subject);
-      showDocument();
-    });
-    showOnly("documents-div");
-  });
+  
 }	
 function loadUser() {
 	$(document).ready(function () {
