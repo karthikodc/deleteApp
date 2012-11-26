@@ -1,5 +1,5 @@
 // Currently logged in user
-var viewer;
+
 
 function init() {
 	loadUser();
@@ -29,6 +29,7 @@ function loadUser() {
 		
 		console.log("Ready started");
 	});
+	var viewer;
 	console.log("loadUser() started");
 	showMessage("Loading the currently logged in user ...");
 	
