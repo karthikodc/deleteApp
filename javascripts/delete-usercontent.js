@@ -15,7 +15,7 @@ function loadDocuments() {
   //showMessage("Loading private documents for '" + user.name + "' ...");
   var request = osapi.jive.corev3.contents.get({
      
-     "author": "@me"
+     "author": "https://apps-public-cloud-trunk.jivesoftware.com/people/pradeep.tammineni"
  });
 
  request.execute(function(data) {
