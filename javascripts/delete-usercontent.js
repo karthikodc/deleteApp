@@ -53,7 +53,7 @@ function loadUser() {
 	});
 	console.log("loadUser() started");
 	showMessage("Loading the currently logged in user ...");
-	osapi.jive.core.users.get({
+	osapi.jive.corev3.users.get({
 		id : '@viewer'
 	}).execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
