@@ -22,7 +22,7 @@ function loadDocuments() {
  request.execute(function(data) {
      console.log("Fetched the document!", data);
  });
-  
+}
 function loadUser() {
 	$(document).ready(function () {
 		$("#content").text("The DOM is now loaded and can be manipulated.");
