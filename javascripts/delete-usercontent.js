@@ -15,9 +15,10 @@ function loadDocuments() {
   //showMessage("Loading private documents for '" + user.name + "' ...");
   var uri="https://apps-public-cloud-trunk.jivesoftware.com/people/pradeep.tammineni";
   var request = osapi.jive.corev3.people.get(uri);
-
+ 
  request.execute(function(data) {
      console.log("Fetched the document!", data);
+	 console.log("searching response is " + JSON.stringify(data));
  });
   
 }	
