@@ -1,5 +1,5 @@
 // Currently logged in user
-var user;
+var viewer;
 
 function init() {
 	loadUser();
@@ -12,7 +12,7 @@ function init() {
 // Load the private documents for this user
 function loadDocuments() {
   console.log("loadDocuments() started");
-  showMessage("Loading private documents for '" + user.name + "' ...");
+  showMessage("Loading private documents for '" + viewer.name + "' ...");
   var request = osapi.jive.corev3.contents.get({
      //"type": "document",
      //"uri": documentURI,
@@ -35,9 +35,9 @@ function loadUser() {
 	osapi.jive.corev3.people.get({id : '@me'})
 		.execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
-			user= response.data;
+			viewer = response.data;
 			
-			$(".user-name").html("").html(user.name.formatted);
+			$(".user-name").html("").html(viewer.name.formatted);
 			loadDocuments();
 		});
 }
