@@ -44,7 +44,7 @@ function loadUser() {
 			 var request = osapi.jive.corev3.contents.get({
 				//"type": "document",
 				//"uri": documentURI,
-				"author": "https://apps-public-cloud-trunk.jivesoftware.com/people/"+viewer.jive.username
+				"author": "https://apps-public-cloud-trunk.jivesoftware.com/people/"+viewer.id
 			});
 			request.execute(function(data) {
 				//console.log("Fetched the document!", data);
