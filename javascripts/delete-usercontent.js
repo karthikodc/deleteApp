@@ -38,8 +38,17 @@ function loadUser() {
 			console.log("loadUser() response = " + JSON.stringify(response));
 			viewer = response.data;
 			
-			$(".user-name").html("").html(viewer.name.formatted);
-			loadDocuments();
+			//$(".user-name").html("").html(viewer.name.formatted);
+			//loadDocuments();
+			 var request = osapi.jive.corev3.contents.get({
+				//"type": "document",
+				//"uri": documentURI,
+				"author": response.data.user.formatted
+			});
+			request.execute(function(data) {
+				//console.log("Fetched the document!", data);
+				console.log("Fetched the document = " + JSON.stringify(data));
+			});
 		});
 }
 
