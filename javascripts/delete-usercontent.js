@@ -36,14 +36,15 @@ function loadUser() {
 	osapi.jive.corev3.people.get({id : '@me'})
 		.execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
-			viewer = response.data;
+			viewer = response;
 			
 			//$(".user-name").html("").html(viewer.name.formatted);
 			//loadDocuments();
+			var authorURI="https://apps-public-cloud-trunk.jivesoftware.com/people/";
 			 var request = osapi.jive.corev3.contents.get({
 				//"type": "document",
 				//"uri": documentURI,
-				"author": response.data.user.formatted
+				"author": "https://apps-public-cloud-trunk.jivesoftware.com/people/"+viewer.jive.username
 			});
 			request.execute(function(data) {
 				//console.log("Fetched the document!", data);
