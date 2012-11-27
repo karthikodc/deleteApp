@@ -27,7 +27,7 @@ function loadUserContents() {
 }
 
 function getMember() {
-var request = osapi.jive.corev3.people.Person.getMembers({
+var request = osapi.jive.corev3.people.person.getMembers({
     id:"@me"
   }).execute(function(response) {
 	console.log("Fetched the Member= " + JSON.stringify(response));
