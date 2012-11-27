@@ -27,8 +27,8 @@ function loadUserContents() {
 }
 
 function getMember() {
-var request = osapi.jive.corev3.people.person.getMembers({
-    id:"@me"
+var request = osapi.jive.corev3.people.Person.getMembers({"https://apps-public-cloud-trunk.jivesoftware.com/people/"+user.id
+    
   }).execute(function(response) {
 	console.log("Fetched the Member= " + JSON.stringify(response));
   });
