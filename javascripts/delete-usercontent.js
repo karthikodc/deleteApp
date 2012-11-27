@@ -28,7 +28,7 @@ function loadUserContents() {
 
 function getMember() {
 var request = osapi.jive.corev3.people.Person.getMembers({
-    limit : 1000
+    id:"@me"
   }).execute(function(response) {
 	console.log("Fetched the Member= " + JSON.stringify(response));
   });
