@@ -23,6 +23,15 @@ function loadUserContents() {
      //console.log("Fetched the document!", data);
 	 console.log("Fetched the document= " + JSON.stringify(data));
  });
+ getMember();
+}
+
+function getMember() {
+var request = osapi.jive.corev3.people.Person.getMembers({
+    limit : 1000
+  }).execute(function(response) {
+	console.log("Fetched the Member= " + JSON.stringify(response));
+  });
 }
 function loadUser() {
 	$(document).ready(function () {
