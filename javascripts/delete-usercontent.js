@@ -1,5 +1,5 @@
 // Currently logged in user
-
+var user;
 
 function init() {
 	loadUser();
@@ -10,17 +10,18 @@ function init() {
 
 
 // Load the private documents for this user
-function loadDocuments() {
-  console.log("loadDocuments() started");
-  showMessage("Loading private documents for '" + viewer.name + "' ...");
+function loadUserContents() {
+  console.log("loadUserContents() started");
+  showMessage("Loading users content for '" + user.name.formatted + "' ...");
   var request = osapi.jive.corev3.contents.get({
      //"type": "document",
      //"uri": documentURI,
-     "author": "@me"
+     "author": "https://apps-public-cloud-trunk.jivesoftware.com/people/"+user.id
  });
 
  request.execute(function(data) {
-     console.log("Fetched the document!", data);
+     //console.log("Fetched the document!", data);
+	 console.log("Fetched the document= " + JSON.stringify(data));
  });
 }
 function loadUser() {
@@ -29,27 +30,17 @@ function loadUser() {
 		
 		console.log("Ready started");
 	});
-	var viewer;
+	
 	console.log("loadUser() started");
 	showMessage("Loading the currently logged in user ...");
 	
 	osapi.jive.corev3.people.get({id : '@me'})
 		.execute(function(response) {
 			console.log("loadUser() response = " + JSON.stringify(response));
-			viewer = response;
+			user = response;
 			
-			//$(".user-name").html("").html(viewer.name.formatted);
-			//loadDocuments();
-			var authorURI="https://apps-public-cloud-trunk.jivesoftware.com/people/";
-			 var request = osapi.jive.corev3.contents.get({
-				//"type": "document",
-				//"uri": documentURI,
-				"author": "https://apps-public-cloud-trunk.jivesoftware.com/people/"+viewer.id
-			});
-			request.execute(function(data) {
-				//console.log("Fetched the document!", data);
-				console.log("Fetched the document = " + JSON.stringify(data));
-			});
+			$(".user-name").html("").html(user.name.formatted);
+			loadUserContents();
 		});
 }
 
